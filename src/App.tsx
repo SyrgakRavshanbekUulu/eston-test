@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { SignIn } from './Pages/SignIn/SignIn';
+import React, { useEffect } from 'react';
+import './App.scss';
+import 'antd/dist/antd.min.css'
+import { useAppDispatch } from 'Store/store';
+import { getAllUsers } from 'Store/users/reducers';
+import { routeArray } from 'routes';
+import { Navigate, Route, Routes, useLocation } from 'react-router';
+import { checkUrl } from 'Shared/Utils/app';
+
+const routes = routeArray.map((route) => (
+  <Route key={route.path} path={route.path} element={<route.page />} />
+))
 
 function App() {
+  const dispatch = useAppDispatch();
+  const location = useLocation();
+
+  const redirect = checkUrl(location)
+
+  useEffect(() => {
+    dispatch(getAllUsers())
+  }, [dispatch])
+  if (redirect !== undefined) return <Navigate to={redirect} />
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        {routes}
+      </Routes>
     </div>
   );
 }

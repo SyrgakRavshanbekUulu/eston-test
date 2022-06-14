@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "login": "user1",
+      "password": "user1",
+      "userType": "common"
+    },
+    {
+      "login": "user2",
+      "password": "user2",
+      "userType": "admin"
+    }
+  ]
+}
