@@ -4,7 +4,7 @@ import { RouteData, userTypes } from 'Shared/Types/routes';
 export const routeMap = new Map<string, RouteData>()
   .set('/all', {
     page: pages.All,
-    userType: [userTypes.COMMON]
+    userType: [userTypes.COMMON, userTypes.ADMIN]
   })
   .set('/user2', {
     page: pages.User2,
@@ -15,11 +15,11 @@ export const routeMap = new Map<string, RouteData>()
     userType: [userTypes.COMMON, userTypes.ADMIN],
   })
   .set('/not-found', {
-    page: pages.All,
+    page: pages.NotFound,
     userType: [userTypes.COMMON, userTypes.ADMIN]
   })
   .set('/forbidden', {
-    page: pages.All,
+    page: pages.Forbidden,
     userType: [userTypes.COMMON, userTypes.ADMIN]
   })
   .set('/', {

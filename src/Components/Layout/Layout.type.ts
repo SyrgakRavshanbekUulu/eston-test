@@ -2,5 +2,6 @@ import { ReactNode } from 'react';
 
 export interface LayoutComponentProps {
   children: ReactNode
-  className?: string
+  className?: string,
+  withOutHeader?: boolean
 }

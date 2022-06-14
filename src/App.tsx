@@ -1,12 +1,11 @@
-import { SignIn } from './Pages/SignIn/SignIn';
 import React, { useEffect } from 'react';
-import './App.scss';
-import 'antd/dist/antd.min.css'
+import { Navigate, Route, Routes, useLocation } from 'react-router';
+import { checkUrl } from 'Shared/Utils/app';
 import { useAppDispatch } from 'Store/store';
 import { getAllUsers } from 'Store/users/reducers';
 import { routeArray } from 'routes';
-import { Navigate, Route, Routes, useLocation } from 'react-router';
-import { checkUrl } from 'Shared/Utils/app';
+import 'antd/dist/antd.min.css'
+import './App.scss';
 
 const routes = routeArray.map((route) => (
   <Route key={route.path} path={route.path} element={<route.page />} />

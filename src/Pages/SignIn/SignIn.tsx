@@ -1,19 +1,19 @@
-import { UserOutlined } from '@ant-design/icons'
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { Button, Col, Row } from 'antd'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { LayoutComponent } from 'Components/Layout/Layout'
-import { useForm } from 'react-hook-form'
-import { IUsers, SignInType } from 'Shared/Types/users'
-import styles from './SignIn.module.scss'
-import { signInSchema } from './schema'
-import { HEADER, SENT, UNCORRECT_LOGIN_OR_PASSWORD } from 'Shared/Constants/signIn'
-import { InputComponent } from 'Components/Input/Input'
+import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import { selectAllUsers, selectAllUsersError, selectAllUsersLoading } from 'Store/users/selectors'
+import { useForm } from 'react-hook-form'
+import { LayoutComponent } from 'Components/Layout/Layout'
+import { InputComponent } from 'Components/Input/Input'
+import { SignInType } from 'Shared/Types/users'
+import { HEADER, SENT, UNCORRECT_LOGIN_OR_PASSWORD } from 'Shared/Constants/signIn'
+import { selectAllUsers, selectAllUsersError } from 'Store/users/selectors'
 import { useAppDispatch } from 'Store/store'
 import { currentUser, setError } from 'Store/users/actions'
 import { write } from 'Service/storage'
-import { useNavigate } from 'react-router'
+import { signInSchema } from './schema'
+import styles from './SignIn.module.scss'
 
 
 
@@ -53,7 +53,7 @@ export const SignIn = () => {
 
 
   return (
-    <LayoutComponent >
+    <LayoutComponent withOutHeader={true}>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.wrapper}
@@ -75,8 +75,8 @@ export const SignIn = () => {
           <Col xs={20}>
             <InputComponent
               size='large'
-              placeholder='password'
-              prefix={<UserOutlined />}
+              type='password'
+              prefix={<LockOutlined />}
               control={control}
               name='password'
             />

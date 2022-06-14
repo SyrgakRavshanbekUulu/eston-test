@@ -1,3 +1,3 @@
-const REQUIRED = 'Заполните поле';
+const REQUIRED = 'Fill in the field!';
 
 export { REQUIRED };

@@ -6,6 +6,12 @@ Redux/Redux-Toolkit - store
 Typescript,
 ```
 
+## Loing and Parols
+```c
+user1 - user1
+user2 - user2
+```
+
 ### `npm i json-server -G`
 install json-server
 
